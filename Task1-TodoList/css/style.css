@@ -1,0 +1,696 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+:root {
+  --primary: black;
+  --secondary: #ff0000;
+  --text-color: white;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary);
+  color: var(--text-color);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(200px);
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--secondary);
+  z-index: -10;
+}
+
+.screen-container {
+  width: 100%;
+  height: 100%;
+}
+
+.screen-container .phone {
+  display: none;
+  visibility: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.screen-container .phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.screen-wrapper {
+  /* background-color: rgba(0, 0, 0); */
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.screen-wrapper .back-drop {
+  width: 100%;
+  height: 10rem;
+  background-color: var(--secondary);
+  border-radius: 0% 0% 50% 50%;
+  scale: 1.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.screen {
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.3s;
+}
+
+.back-btn,
+.menu-icon {
+  padding: 0.5rem 0rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.screen-heading h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.heading h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.para {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.screen-padding {
+  padding: 0px 1rem;
+}
+
+/* navbar css */
+.nav-bar {
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fc2e2eb4;
+  backdrop-filter: blur(10px);
+  display: flex;
+  transform: translateX(-100%);
+  transition: all 0.3s;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.nav-bar.show-navbar {
+  transform: translateX(0);
+}
+
+.navbar-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+}
+
+.navbar-wrapper .close-btn {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.navbar-wrapper .close-btn:hover {
+  background-color: black;
+}
+
+.navbar-wrapper .nav-items {
+  width: 100%;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+  align-items: start;
+  gap: 5px;
+}
+
+.nav-items .nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.nav-item span,
+i {
+  transition: all 0.3s;
+}
+
+.nav-item:hover > * {
+  text-shadow: 2px 2px 2px black;
+  transform: scale(1.1);
+}
+
+/* home screen css */
+.screen.home-screen {
+  transform: translateX(0);
+  display: block;
+  visibility: visible;
+}
+
+.home-screen.show-homescreen {
+  transform: translateX(-100%);
+}
+
+.categories-wrapper {
+  margin-top: 1rem;
+  height: 480px;
+  overflow: auto;
+  /* border: 1px solid black; */
+  padding: 1rem;
+}
+
+.categories-wrapper .categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  /* border: 1px solid red; */
+}
+
+.categories-wrapper .category {
+  max-width: 280px;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 5px 20px rgb(183, 183, 183);
+  transition: transform 0.3s;
+}
+
+.categories-wrapper .category:hover {
+  transform: translateY(-10%);
+  box-shadow: 0px 10px 20px rgb(162, 162, 162);
+}
+
+.categories-wrapper .category .image {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+}
+
+.categories-wrapper .category .image h1 {
+  text-align: center;
+  font-weight: 500;
+}
+
+.categories-wrapper .category .content h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.categories-wrapper .category .content p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* category screen css */
+.category-screen.show-screen {
+  transform: translateX(0);
+  display: block;
+  visibility: visible;
+}
+
+.category-screen .category-form {
+  padding: 1rem 0rem;
+}
+
+.category-screen .category-form .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-screen .category-form .form input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.category-screen .category-form .form button {
+  width: 50px;
+  height: 40px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.category-screen .categories-container {
+  color: black;
+  height: 100%;
+  margin-top: 1rem;
+}
+
+.categories-container .categories {
+  height: 300px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem 0rem;
+}
+
+.category-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category-item p {
+  font-size: 18px;
+}
+
+.category-item .icon {
+  font-size: 30px;
+  color: red;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline;
+}
+
+/* task screen css */
+.task-screen.show-screen {
+  transform: translateX(0);
+  display: block;
+  visibility: visible;
+}
+
+.task-screen .screen-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-screen .progress-count {
+  width: 85px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+
+.task-screen .container {
+  height: 100%;
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.progress-bar {
+  background-color: rgb(193, 0, 0);
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar .progress {
+  background-color: white;
+  height: 100%;
+  width: 0;
+  transition: all 0.3s;
+  border-radius: 20px;
+}
+
+.tasks-container {
+  height: 380px;
+  overflow: hidden;
+  /* border: 1px solid black; */
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* padding-bottom: 1.5rem; */
+}
+
+.task-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
+}
+
+.task-wrapper .task {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.task-wrapper .task input {
+  display: none;
+  visibility: hidden;
+}
+
+.check-mark {
+  border: 2px solid red;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.check-mark .icon {
+  opacity: 0;
+  transition: all 0.1s;
+}
+
+.check-mark .icon img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(4px, -4px);
+}
+
+.task input:checked ~ .check-mark {
+  border-color: green;
+}
+
+.task input:checked ~ .check-mark .icon {
+  opacity: 1;
+}
+
+.task input:checked ~ p {
+  text-decoration: 1.5px line-through;
+  opacity: 0.7;
+}
+
+.task-icons {
+  display: flex;
+  gap: 2px;
+}
+
+.task-icons > * {
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  padding: 2px 7px;
+  border-radius: 50%;
+  transition: opacity 0.3s;
+}
+
+.task-wrapper:hover .task-icons > * {
+  opacity: 1;
+  visibility: visible;
+}
+
+.edit:hover,
+.delete:hover {
+  background-color: rgba(220, 220, 220, 0.801);
+}
+
+.edit:hover {
+  color: green;
+}
+
+.delete:hover {
+  color: var(--secondary);
+}
+
+/* add task btn css */
+.add-task-btn {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  z-index: 22;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+.add-task-btn .icon {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+.add-task-btn.active {
+  bottom: 14rem;
+  transform: rotate(45deg);
+}
+
+.add-task-btn.active:hover .icon {
+  color: var(--secondary);
+}
+
+/* task form css */
+.task-form {
+  width: 100%;
+  position: absolute;
+  bottom: -100%;
+  visibility: hidden;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  z-index: 20;
+  padding: 2rem 1rem;
+  transition: all 0.3s;
+}
+
+.task-form.active {
+  bottom: 0;
+  visibility: visible;
+}
+
+.task-backdrop {
+  height: 300px;
+  width: 145%;
+  background-color: white;
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 0 0;
+  z-index: -1;
+}
+
+.task-form .heading {
+  padding-bottom: 0.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.input-group input,
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+  background-color: rgb(240, 240, 240);
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-group button {
+  width: 5rem;
+  padding: 0.4rem;
+  font-size: 15px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  background-color: black;
+  transition: all 0.3s;
+}
+
+.btn-group button:hover {
+  background-color: #ff0000;
+}
+
+.btn-group .editTask-btn.hide-btn {
+  display: none;
+  visibility: hidden;
+}
+
+.btn-group .addTask-btn.hide-btn {
+  display: none;
+  visibility: hidden;
+}
+
+.screen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(76, 76, 76, 0.579);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  z-index: 12;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.screen-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* mobile responsive code */
+@media screen and (min-width: 465px) {
+  .backdrop {
+    width: 500px;
+    height: 500px;
+  }
+
+  .shadow {
+    width: 600px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary);
+    filter: blur(10px);
+  }
+
+  .screen-container {
+    height: 42rem;
+    width: 360px;
+    position: relative;
+    padding: 2rem 2.3rem;
+  }
+
+  .screen-container .phone {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .screen-wrapper {
+    border-radius: 1.8rem;
+  }
+
+  .nav-bar.show-navbar {
+    transform: translateX(0);
+    border-radius: 1.8rem 0 0 1.8rem;
+  }
+}

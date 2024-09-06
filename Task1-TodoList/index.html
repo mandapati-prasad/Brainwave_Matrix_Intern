@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="backdrop"></div>
+
+    <div class="screen-container">
+      <div class="phone">
+        <img src="assets/pngwing.com.png" alt="" class="phone" />
+      </div>
+      <div class="shadow"></div>
+
+      <div class="screen-wrapper">
+        <div class="back-drop"></div>
+
+        <!-- side nav bar  -->
+        <nav class="nav-bar">
+          <div class="navbar-wrapper">
+            <div class="close-btn">
+              <i class="ri-close-large-line"></i>
+            </div>
+            <div class="nav-items">
+              <div class="nav-item">
+                <i class="ri-stack-fill"></i>
+                <span>Categories</span>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- home screen code starts here -->
+        <div class="screen home-screen">
+          <div class="top screen-padding">
+            <div class="menu-icon">
+              <i class="ri-menu-2-fill"></i>
+            </div>
+          </div>
+
+          <div class="screen-heading screen-padding">
+            <h1>Welcome</h1>
+            <p>You have <span class="totalTasks">5</span> tasks</p>
+          </div>
+
+          <div class="categories-wrapper">
+            <div class="categories">
+              <div class="category">
+                <div class="image">
+                  <h1>P</h1>
+                </div>
+                <div class="content heading">
+                  <h3>Personal</h3>
+                  <p>Total Tasks 2</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- category screen code starts here -->
+        <div class="screen category-screen screen-padding">
+          <div class="top">
+            <div class="back-btn">
+              <i class="ri-arrow-go-back-fill"></i>
+            </div>
+          </div>
+
+          <div class="screen-heading">
+            <h1>Add Category</h1>
+            <p>Total Categories <span id="category-count"></span></p>
+          </div>
+
+          <div class="category-form">
+            <div class="form">
+              <input
+                type="text"
+                name="category"
+                id="category-input"
+                placeholder="Category"
+              />
+              <button class="addCategory-btn"><i class="ri-add-fill"></i></button>
+            </div>
+          </div>
+
+          <div class="categories-container">
+            <div class="heading">
+              <h3>Categories</h3>
+            </div>
+            <div class="categories" id="categories-list">
+              <div class="category-item">
+                <p>Personal</p>
+                <div class="icon" id="deleteCategory-btn">
+                  <i class="ri-close-circle-line"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- tasks screen code  starts here-->
+        <div class="screen task-screen screen-padding">
+          <div class="top">
+            <div class="back-btn">
+              <i class="ri-arrow-go-back-fill"></i>
+            </div>
+          </div>
+
+          <div class="screen-heading">
+            <div class="taskscreen-title">
+              <h1 class="category-title">Personal</h1>
+              <p>Total Tasks <span class="category-tasks">1</span></p>
+            </div>
+
+            <div class="progress-count">
+              <p class="progress-bar-count">0-1</p>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+
+            <div class="tasks-container">
+              <div class="heading">
+                <h3>Tasks</h3>
+              </div>
+              <div class="tasks">
+                <div class="task-wrapper">
+                  <label for="task" class="task">
+                    <input type="checkbox" id="task" />
+                    <div class="check-mark">
+                      <div class="icon">
+                        <img src="./assets/check.png" alt="" />
+                      </div>
+                    </div>
+                    <p class="para">write an essay</p>
+                  </label>
+
+                  <div class="task-icons">
+                    <div class="edit">
+                      <i class="ri-pencil-line"></i>
+                    </div>
+
+                    <div class="delete">
+                      <i class="ri-delete-bin-line"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- screen overlay -->
+        <div class="screen-overlay"></div>
+
+        <!-- add task button code starts here -->
+        <div class="add-task-btn">
+          <div class="icon">
+            <i class="ri-add-circle-fill"></i>
+          </div>
+        </div>
+
+        <!-- add task form code starts here -->
+        <div class="task-form">
+          <div class="task-backdrop"></div>
+          <div class="heading">
+            <h3>Add Task</h3>
+          </div>
+          <div class="input-group">
+            <input type="text" id="task-input" placeholder="Task" />
+            <select name="" id="category-select">
+              <option value="Personal">Personal</option>
+            </select>
+
+            <div class="btn-group">
+              <button class="cancle-btn">Cancle</button>
+              <button class="addTask-btn">Add</button>
+              <button class="editTask-btn">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>
