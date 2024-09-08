@@ -16,20 +16,21 @@
 body {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   background-color: var(--primary);
   color: var(--text-color);
   justify-content: center;
   align-items: center;
   position: relative;
+  /* border: 1px solid black; */
 }
 
 .backdrop {
-  width: 100%;
-  height: 100%;
+  display: none;
+  visibility: hidden;
   border-radius: 50%;
   filter: blur(200px);
-  opacity: 0.5;
+  opacity: 1;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -40,44 +41,59 @@ body {
 
 .screen-container {
   width: 100%;
+  height: inherit;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.screen-backdrop-container {
   height: 100%;
+  background-color: white;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  /* border-radius: 2rem; */
+}
+
+.screen-backdrop {
+  width: 135%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 13rem;
+  background-color: var(--secondary);
+  border-radius: 0% 0% 50% 50%;
 }
 
 .screen-container .phone {
   display: none;
   visibility: hidden;
-}
-
-::-webkit-scrollbar {
-  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: white; */
 }
 
 .screen-container .phone img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
 .screen-wrapper {
-  /* background-color: rgba(0, 0, 0); */
-  background-color: white;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
+  /* border: 1px solid red; */
 }
 
-.screen-wrapper .back-drop {
-  width: 100%;
-  height: 10rem;
-  background-color: var(--secondary);
-  border-radius: 0% 0% 50% 50%;
-  scale: 1.5;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+::-webkit-scrollbar {
+  width: 0;
 }
 
 .screen {
@@ -90,6 +106,10 @@ body {
   transform: translateX(100%);
   visibility: hidden;
   transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* background-color: black; */
 }
 
 .back-btn,
@@ -129,12 +149,14 @@ body {
   backdrop-filter: blur(10px);
   display: flex;
   transform: translateX(-100%);
+  visibility: hidden;
   transition: all 0.3s;
   overflow: hidden;
   z-index: 100;
 }
 
 .nav-bar.show-navbar {
+  visibility: visible;
   transform: translateX(0);
 }
 
@@ -199,20 +221,19 @@ i {
 /* home screen css */
 .screen.home-screen {
   transform: translateX(0);
-  display: block;
   visibility: visible;
+  /* border: 2px solid yellow; */
 }
 
 .home-screen.show-homescreen {
+  visibility: hidden;
   transform: translateX(-100%);
 }
 
 .categories-wrapper {
-  margin-top: 1rem;
-  height: 480px;
-  overflow: auto;
-  /* border: 1px solid black; */
-  padding: 1rem;
+  padding: 1rem 0rem;
+  height: 100%;
+  overflow: hidden;
 }
 
 .categories-wrapper .categories {
@@ -220,6 +241,10 @@ i {
   flex-direction: column;
   align-items: center;
   gap: 1.8rem;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 1rem;
   /* border: 1px solid red; */
 }
 
@@ -274,7 +299,6 @@ i {
 /* category screen css */
 .category-screen.show-screen {
   transform: translateX(0);
-  display: block;
   visibility: visible;
 }
 
@@ -319,15 +343,21 @@ i {
   color: black;
   height: 100%;
   margin-top: 1rem;
+  overflow: hidden;
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  /* border: 3px solid red; */
 }
 
 .categories-container .categories {
-  height: 300px;
+  height: 85%;
   overflow: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  padding: 1rem 0rem;
+  gap: .5rem;
+  /* border: 1px solid black; */
 }
 
 .category-item {
@@ -335,7 +365,6 @@ i {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
 }
 
 .category-item p {
@@ -353,14 +382,19 @@ i {
 /* task screen css */
 .task-screen.show-screen {
   transform: translateX(0);
-  display: block;
   visibility: visible;
 }
 
-.task-screen .screen-heading {
+.task-screen .top{
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-screen .title-container{
+  display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .task-screen .progress-count {
@@ -375,16 +409,9 @@ i {
   border-radius: 50%;
 }
 
-.task-screen .container {
-  height: 100%;
-  padding: 1rem 0rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
 .progress-bar {
-  background-color: rgb(193, 0, 0);
+  /* background-color: rgb(193, 0, 0); */
+  background-color: rgba(43, 43, 43, 0.378);
   width: 100%;
   height: 0.5rem;
   border-radius: 20px;
@@ -400,27 +427,30 @@ i {
 }
 
 .tasks-container {
-  height: 380px;
+  margin-top: 2rem;
+  height: 100%;
   overflow: hidden;
-  /* border: 1px solid black; */
+  /* border: 3px solid green; */
   color: black;
   display: flex;
   flex-direction: column;
+  padding-top: 1rem;
+  gap: .5rem;
 }
 
 .tasks {
+  /* border: 1px solid red; */
+  height: 80%;
   overflow: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  /* padding-bottom: 1.5rem; */
 }
 
 .task-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0px;
+  padding:.5rem 0px;
 }
 
 .task-wrapper .task {
@@ -651,6 +681,8 @@ select {
 /* mobile responsive code */
 @media screen and (min-width: 465px) {
   .backdrop {
+    display: block;
+    visibility: visible;
     width: 500px;
     height: 500px;
   }
@@ -665,10 +697,12 @@ select {
     transform: translateX(-50%);
     background-color: var(--secondary);
     filter: blur(10px);
+    display: block;
+    visibility: visible;
   }
 
   .screen-container {
-    height: 42rem;
+    max-height: 42rem;
     width: 360px;
     position: relative;
     padding: 2rem 2.3rem;
@@ -677,18 +711,15 @@ select {
   .screen-container .phone {
     display: block;
     visibility: visible;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
   }
 
   .screen-wrapper {
     border-radius: 1.8rem;
+    width: calc(100% - 5rem);
+    height: calc(100% - 4.5rem);
+    overflow: hidden;
+    /* background-color: black; */
   }
-
   .nav-bar.show-navbar {
     transform: translateX(0);
     border-radius: 1.8rem 0 0 1.8rem;

@@ -17,11 +17,14 @@
       <div class="phone">
         <img src="assets/pngwing.com.png" alt="" class="phone" />
       </div>
+
       <div class="shadow"></div>
 
-      <div class="screen-wrapper">
-        <div class="back-drop"></div>
+      <div class="screen-backdrop-container">
+        <div class="screen-backdrop"></div>
+      </div>
 
+      <div class="screen-wrapper">
         <!-- side nav bar  -->
         <nav class="nav-bar">
           <div class="navbar-wrapper">
@@ -67,10 +70,8 @@
 
         <!-- category screen code starts here -->
         <div class="screen category-screen screen-padding">
-          <div class="top">
-            <div class="back-btn">
-              <i class="ri-arrow-go-back-fill"></i>
-            </div>
+          <div class="back-btn">
+            <i class="ri-arrow-go-back-fill"></i>
           </div>
 
           <div class="screen-heading">
@@ -86,7 +87,9 @@
                 id="category-input"
                 placeholder="Category"
               />
-              <button class="addCategory-btn"><i class="ri-add-fill"></i></button>
+              <button class="addCategory-btn">
+                <i class="ri-add-fill"></i>
+              </button>
             </div>
           </div>
 
@@ -107,52 +110,50 @@
 
         <!-- tasks screen code  starts here-->
         <div class="screen task-screen screen-padding">
+          <div class="back-btn">
+            <i class="ri-arrow-go-back-fill"></i>
+          </div>
+
           <div class="top">
-            <div class="back-btn">
-              <i class="ri-arrow-go-back-fill"></i>
+            <div class="title-container">
+              <div class="screen-heading">
+                <h1 class="category-title">Personal</h1>
+                <p>Total Tasks <span class="category-tasks">1</span></p>
+              </div>
+              <div class="progress-count">
+                <p class="progress-bar-count">0-1</p>
+              </div>
             </div>
-          </div>
 
-          <div class="screen-heading">
-            <div class="taskscreen-title">
-              <h1 class="category-title">Personal</h1>
-              <p>Total Tasks <span class="category-tasks">1</span></p>
-            </div>
-
-            <div class="progress-count">
-              <p class="progress-bar-count">0-1</p>
-            </div>
-          </div>
-
-          <div class="container">
             <div class="progress-bar">
               <div class="progress"></div>
             </div>
+          </div>
 
-            <div class="tasks-container">
-              <div class="heading">
-                <h3>Tasks</h3>
-              </div>
-              <div class="tasks">
-                <div class="task-wrapper">
-                  <label for="task" class="task">
-                    <input type="checkbox" id="task" />
-                    <div class="check-mark">
-                      <div class="icon">
-                        <img src="./assets/check.png" alt="" />
-                      </div>
-                    </div>
-                    <p class="para">write an essay</p>
-                  </label>
+          <div class="tasks-container">
+            <div class="heading">
+              <h3>Tasks</h3>
+            </div>
 
-                  <div class="task-icons">
-                    <div class="edit">
-                      <i class="ri-pencil-line"></i>
+            <div class="tasks">
+              <div class="task-wrapper">
+                <label for="task" class="task">
+                  <input type="checkbox" id="task" />
+                  <div class="check-mark">
+                    <div class="icon">
+                      <img src="./assets/check.png" alt="" />
                     </div>
+                  </div>
+                  <p class="para">write an essay</p>
+                </label>
 
-                    <div class="delete">
-                      <i class="ri-delete-bin-line"></i>
-                    </div>
+                <div class="task-icons">
+                  <div class="edit">
+                    <i class="ri-pencil-line"></i>
+                  </div>
+
+                  <div class="delete">
+                    <i class="ri-delete-bin-line"></i>
                   </div>
                 </div>
               </div>

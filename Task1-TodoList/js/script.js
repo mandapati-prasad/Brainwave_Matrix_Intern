@@ -4,8 +4,8 @@ const navitem = document.querySelector(".nav-item");
 const menuCloseBtn = document.querySelector(".close-btn");
 
 // home screen elemets
-const categoryContainer = document.querySelector(".categories");
 const menu = document.querySelector(".menu-icon");
+const categoryContainer = document.querySelector(".categories");
 const totalTasks = document.querySelector(".totalTasks");
 
 // task Screen elements
@@ -285,7 +285,10 @@ cancleTaskBtn.addEventListener("click", () => {
 addCategoryButton.addEventListener("click", () => {
   const categoryInput = document.getElementById("category-input");
   if (categoryInput.value) {
-    allCategories.push({ title: categoryInput.value });
+    allCategories.push({
+      id: Date.now().toString(36) + Math.random().toString(36).substr(2),
+      title: categoryInput.value,
+    });
     saveData();
     renderCategories();
   } else {
