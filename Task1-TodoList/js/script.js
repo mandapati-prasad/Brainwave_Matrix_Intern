@@ -4,8 +4,8 @@ const navitem = document.querySelector(".nav-item");
 const menuCloseBtn = document.querySelector(".close-btn");
 
 // home screen elemets
-const menu = document.querySelector(".menu-icon");
 const categoryContainer = document.querySelector(".categories");
+const menu = document.querySelector(".menu-icon");
 const totalTasks = document.querySelector(".totalTasks");
 
 // task Screen elements
@@ -112,6 +112,24 @@ const renderCategories = () => {
   categorySelect.innerHTML = "";
   categoryCount.innerText = allCategories.length;
 
+  if (allCategories.length === 0) {
+    categoryContainer.innerHTML = `<div class="category">
+                <div class="content heading">
+                  <h3>No categories</h3>
+                  <button class="cat-btn">Add Category</button>
+                </div>
+              </div>`;
+    categoriesList.innerHTML = `<div class="category-item">
+                <p>No categories found</p>
+              </div>`;
+    categorySelect.innerHTML = `<option value="No categories" selected >No categories</option>`;
+
+    const catbtn = categoryContainer.querySelector(".cat-btn");
+    catbtn.addEventListener("click", () => {
+      toggleHomeScreen(categoryScreen);
+    });
+  }
+
   allCategories.forEach((category) => {
     const categoryTasks = allTasks.filter(
       (task) => category.id === task.categoryId
@@ -156,7 +174,6 @@ const renderCategories = () => {
       allTasks = allTasks.filter((task) => task.categoryId !== category.id);
       saveData();
       renderTasks();
-      renderCategories();
     });
 
     categoryContainer.appendChild(div);
@@ -235,10 +252,10 @@ const renderTasks = () => {
         renderCategories();
       });
     });
-
-    categoryTasksCount();
-    renderCategories();
   }
+
+  categoryTasksCount();
+  renderCategories();
 };
 
 // edit or add tasks
