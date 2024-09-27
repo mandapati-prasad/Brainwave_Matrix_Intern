@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/blogs.css" />
+    <link rel="stylesheet" href="/styles/blog.css" />
+    <title>BlogSpot</title>
+  </head>
+  <body>
+    <div class="page-wrapper home">
+      <%- include('navbar', user) %>
+
+      <!-- section 1 -->
+      <section
+        class="blog_section-1 banner flex section-padding"
+        style="background-image: url('<%= postData.imageUrl %>')"
+      >
+        <div class="banner-content flex flex-center flex-col">
+          <h1><%=postData.title%></h1>
+        </div>
+      </section>
+
+      <!-- section 2 -->
+
+      <!-- section 3 -->
+      <section class="blog_section-3 section section-padding flex">
+        <div class="blog_content"><%-postData.content%></div>
+
+        <form
+          action="/comment/<%=postData.id%>"
+          method="post"
+          class="comment_form flex flex-col"
+        >
+          <h1>Comment</h1>
+          <textarea
+            name="comment"
+            id="comment"
+            placeholder="Comment"
+            rows="10"
+            required
+          ></textarea>
+          <button type="submit">Comment</button>
+        </form>
+      </section>
+
+      <section class="comments_section section-padding flex flex-col">
+        <h1>Comments</h1>
+        <div class="comments_container flex flex-col">
+          <% if (commentsData.length === 0) { %>
+          <p>No Comments Yet</p>
+          <%} else { %> <% commentsData.forEach((item) => { %>
+          <div class="comment_container flex flex-col">
+            <div class="user_name flex">
+              <div class="user_icon">
+                <i class="ri-user-fill"></i>
+              </div>
+              <h4><%= item.userName %></h4>
+            </div>
+            <p class="comment_message para-font"><%= item.comment %></p>
+          </div>
+          <% }); %> <% } %>
+        </div>
+      </section>
+
+      <!-- section 5 -->
+      <section class="home_section5 section-padding">
+        <div class="home_section5_container flex flex-center">
+          <div class="section-heading flex flex-col">
+            <h1>Subscribe</h1>
+            <p class="para-font">
+              Stay updated with the latest posts, featured articles, and
+              community news by subscribing to our newsletter.
+            </p>
+          </div>
+
+          <div class="subscribe_form flex flex-center">
+            <input type="email" placeholder="Email" />
+            <button class="btn">Subscribe</button>
+          </div>
+        </div>
+      </section>
+
+      <%- include('footer') %>
+    </div>
+
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>

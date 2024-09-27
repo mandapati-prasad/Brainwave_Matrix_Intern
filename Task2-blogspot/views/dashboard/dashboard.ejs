@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <link rel="stylesheet" href="styles/addblog.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper flex">
+      <%- include('sidenav', user) %>
+
+      <div class="dashboard-wrapper">
+        <div class="header section-padding flex flex-space-between">
+          <div class="menu_btn">
+            <i class="ri-menu-3-line"></i>
+          </div>
+
+          <div class="logo flex flex-center">
+            <img src="images/logo-1.png" alt="" />
+          </div>
+
+          <div class="welcome_note">
+            <p>Welcome <%= user.name %></p>
+          </div>
+        </div>
+
+        <section class="blog_section-3 section-padding flex">
+          <div class="section-heading">
+            <h1>Blogs</h1>
+          </div>
+
+          <div class="filter_container flex">
+            <form action="" class="search_form flex">
+              <input type="text" name="" placeholder="search..." id="" />
+              <button type="submit"><i class="ri-search-line"></i></button>
+            </form>
+
+            <div class="category_container flex">
+              <button id="prev">
+                <i class="ri-arrow-left-s-fill"></i>
+              </button>
+              <div class="categories flex">
+                <div class="category active"><a href="#">All</a></div>
+                <div class="category"><a href="#">Travel</a></div>
+                <div class="category"><a href="#">Sports</a></div>
+                <div class="category"><a href="#">Career</a></div>
+                <div class="category"><a href="#">Finance</a></div>
+                <div class="category"><a href="#">Science</a></div>
+                <div class="category"><a href="#">Reviews</a></div>
+                <div class="category"><a href="#">Business</a></div>
+                <div class="category"><a href="#">Education</a></div>
+                <div class="category"><a href="#">Parenting</a></div>
+                <div class="category"><a href="#">Lifestyle</a></div>
+                <div class="category"><a href="#">Technology</a></div>
+                <div class="category"><a href="#">Entertainment</a></div>
+                <div class="category"><a href="#">Relationships</a></div>
+                <div class="category"><a href="#">Home and Garden</a></div>
+                <div class="category"><a href="#">Arts and Crafts</a></div>
+                <div class="category">
+                  <a href="#">Culture and Society</a>
+                </div>
+                <div class="category">
+                  <a href="#">Personal Development</a>
+                </div>
+              </div>
+              <button id="next">
+                <i class="ri-arrow-right-s-fill"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="blogs_container">
+            <div class="blogs">
+              <% if (blogs.length === 0) { %>
+              <p>No blog posts found for this user.</p>
+              <% } else { %>
+              <table>
+                <% blogs.forEach((blog, i) => { %>
+                <tr>
+                  <td class="sno"><%= i+1 %>.</td>
+                  <td class="blog_img">
+                    <img src="<%= blog.imageUrl %>" alt="" srcset="" />
+                  </td>
+                  <td class="blog-title">
+                    <p><%= blog.title %></p>
+                  </td>
+                  <td>
+                    <a href="/user/blog/<%= blog.id %>">
+                      <div class="view_icon">
+                        <i class="ri-eye-fill"></i>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="/editblog/<%= blog.id %>">
+                      <div class="edit_icon">
+                        <i class="ri-edit-circle-fill"></i>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="/user/delete/<%= blog.id %>">
+                      <div class="delete_icon">
+                        <i class="ri-delete-bin-6-fill"></i>
+                      </div>
+                    </a>
+                  </td>
+                </tr>
+                <% }); %>
+              </table>
+              <% } %>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="scripts/dashboard.js"></script>
+  </body>
+</html>

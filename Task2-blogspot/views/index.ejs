@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/blogs.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <title>BlogSpot</title>
+  </head>
+  <body>
+    <div class="page-wrapper home">
+      <%- include('navbar', user) %>
+
+      <!-- section 1 -->
+      <section class="home_section1 banner flex flex-center section-padding">
+        <div class="banner-content flex flex-center flex-col">
+          <h1>Welcome to BlogSpot!</h1>
+          <p class="para-font">
+            the ultimate platform where creativity and knowledge come together.
+            Whether you’re a seasoned writer, a passionate hobbyist, or just
+            someone with a story to tell, BlogSphere is your go-to space for
+            sharing diverse content across a multitude of categories. Our
+            mission is to provide a vibrant community where everyone can
+            contribute, connect, and explore a rich tapestry of ideas and
+            interests.
+          </p>
+          <button class="btn">Explore</button>
+        </div>
+      </section>
+
+      <!-- section 2 -->
+      <section
+        class="home_section3 section section-padding flex flex-col flex-center"
+      >
+        <div class="section-heading">
+          <h1>Why Join Us?</h1>
+        </div>
+
+        <div class="home_section3_content_wrapper p-x flex flex-space-between">
+          <div class="home_section3_content flex flex-col">
+            <div class="item flex flex-start">
+              <div class="item-icon">
+                <div class="icon flex flex-center">
+                  <i class="ri-pen-nib-fill"></i>
+                </div>
+              </div>
+
+              <div class="item-content flex flex-col">
+                <h3 class="h-3">Creative Freedom</h3>
+                <p class="para-font">
+                  Share your thoughts, ideas, and experiences freely without any
+                  limitations.
+                </p>
+              </div>
+            </div>
+
+            <div class="item flex flex-start">
+              <div class="item-icon">
+                <div class="icon flex flex-center">
+                  <i class="ri-shake-hands-fill"></i>
+                </div>
+              </div>
+
+              <div class="item-content flex flex-col">
+                <h3 class="h-3">Supportive Community</h3>
+                <p class="para-font">
+                  Connect with like-minded individuals, exchange ideas, and
+                  participate in conversations that inspire and educate.
+                </p>
+              </div>
+            </div>
+
+            <div class="item flex flex-start">
+              <div class="item-icon">
+                <div class="icon flex flex-center">
+                  <i class="ri-line-chart-fill"></i>
+                </div>
+              </div>
+
+              <div class="item-content flex flex-col">
+                <h3 class="h-3">Professional Growth</h3>
+                <p class="para-font">
+                  Whether you're an aspiring blogger or a seasoned writer,
+                  BlogSphere offers opportunities to refine your skills
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="home_section3_content_img">
+            <img src="/images/Questions-pana.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <!-- section 3 -->
+      <section
+        class="home_section2 section section-padding flex flex-col flex-center"
+      >
+        <div class="section-heading">
+          <h1>What We Offer</h1>
+        </div>
+
+        <div class="home_section2_content p-x flex flex-row flex-space-between">
+          <div class="item flex flex-col flex-center">
+            <div class="item-icon">
+              <div class="icon flex flex-center">
+                <i class="ri-file-list-3-fill"></i>
+              </div>
+            </div>
+            <div class="item-content flex flex-col flex-center">
+              <h3 class="h-3">Diverse Categories</h3>
+              <p class="para-font">
+                Explore a wide range of topics from travel and lifestyle to
+                technology, health, and personal finance. Whatever your passion,
+                you’ll find a category that suits your interests.
+              </p>
+            </div>
+          </div>
+
+          <div class="item flex flex-col flex-center">
+            <div class="item-icon">
+              <div class="icon flex flex-center">
+                <i class="ri-question-answer-fill"></i>
+              </div>
+            </div>
+            <div class="item-content flex flex-col flex-center">
+              <h3 class="h-3">Community Contributions</h3>
+              <p class="para-font">
+                Share your insights, stories, and expertise with a global
+                audience. BlogSphere provides a platform for you to publish your
+                content and engage with readers.
+              </p>
+            </div>
+          </div>
+
+          <div class="item flex flex-col flex-center">
+            <div class="item-icon">
+              <div class="icon flex flex-center">
+                <i class="ri-lightbulb-flash-line"></i>
+              </div>
+            </div>
+            <div class="item-content flex flex-col">
+              <h3 class="h-3">Inspiration & Resources</h3>
+              <p class="para-font">
+                Discover inspiring articles and valuable resources to help you
+                create and enhance your own blog posts. From writing tips to
+                content trends, we've got you covered.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section 4 -->
+      <section
+        class="home_section4 section section-padding flex flex-col flex-center"
+      >
+        <div class="section-heading">
+          <h1>Latest Blogs</h1>
+        </div>
+        <div class="blogs p-x">
+          <% if (blogs.length === 0) { %>
+          <p>No blog posts found for this user.</p>
+          <% } else { %> <% blogs.forEach((blog) => { %>
+          <div class="blog flex flex-col">
+            <div class="blog-img">
+              <img src="<%= blog.imageUrl %>" alt="" />
+            </div>
+            <div class="blog-content flex flex-col">
+              <h1 class="blog-title"><%= blog.title.slice(0,30)+'...' %></h1>
+              <div class="blog-text para-font">
+                <%- blog.content.slice(0,320)+'...' %>
+              </div>
+              <a href="/user/blog/<%= blog.id %>">
+                <button>Read More...</button>
+              </a>
+            </div>
+          </div>
+          <% }); %> <% } %>
+        </div>
+      </section>
+
+      <!-- section 5 -->
+      <section class="home_section5 section-padding">
+        <div class="home_section5_container flex flex-center">
+          <div class="section-heading flex flex-col">
+            <h1>Subscribe</h1>
+            <p class="para-font">
+              Stay updated with the latest posts, featured articles, and
+              community news by subscribing to our newsletter.
+            </p>
+          </div>
+
+          <div class="subscribe_form flex flex-center">
+            <input type="email" placeholder="Email" />
+            <button class="btn">Subscribe</button>
+          </div>
+        </div>
+      </section>
+
+      <%- include('footer') %>
+    </div>
+
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>

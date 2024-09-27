@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="/styles/style.css" />
+    <!-- <link rel="stylesheet" href="styles/dashboard.css" /> -->
+    <link rel="stylesheet" href="/styles/addblog.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper flex">
+      <%- include('sidenav', user) %>
+
+      <div class="dashboard-wrapper">
+        <%- include('../message', error) %>
+
+        <div class="header section-padding flex flex-space-between">
+          <div class="menu_btn">
+            <i class="ri-menu-3-line"></i>
+          </div>
+
+          <div class="logo flex flex-center">
+            <img src="/images/logo-1.png" alt="" />
+          </div>
+
+          <div class="welcome_note">
+            <p>Welcome <%=user.name%>!</p>
+          </div>
+        </div>
+
+        <div class="addblog_section_1 section-padding">
+          <form
+            class="blog_form flex flex-col"
+            action="/user/editblog/<%=blogData.id%>"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div
+              class="bannerImg"
+              id="uploadedImgContainer"
+              style="position: relative"
+            >
+              <input
+                type="file"
+                name="bannerImg"
+                id="bannerImage"
+                value="<%=blogData.imageUrl%>"
+                hidden
+              />
+              <label for="bannerImage">
+                <div class="upload-img">
+                  <i class="ri-upload-cloud-fill"></i>
+                </div>
+              </label>
+              <img
+                src="<%=blogData.imageUrl%>"
+                alt=""
+                style="
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  object-fit: cover;
+                "
+                id="uploaded-img"
+              />
+               <input type="hidden" name="existingImageUrl" value="<%= blogData.imageUrl %>" />
+            </div>
+
+            <input
+              type="text"
+              placeholder="Blog Title..."
+              name="title"
+              value="<%=blogData.title%>"
+              required
+            />
+
+            <select
+              name="category"
+              id=""
+              value="<%=blogData.category%>"
+              required
+            >
+               <option value="Travel" <%= blogData.category === 'Travel' ? 'selected' : '' %>>Travel</option>
+              <option value="Sports" <%= blogData.category === 'Sports' ? 'selected' : '' %>>Sports</option>
+              <option value="Career" <%= blogData.category === 'Career' ? 'selected' : '' %>>Career</option>
+              <option value="Finance" <%= blogData.category === 'Finance' ? 'selected' : '' %>>Finance</option>
+              <option value="Science" <%= blogData.category === 'Science' ? 'selected' : '' %> >Science</option>
+              <option value="Reviews" <%= blogData.category === 'Reviews' ? 'selected' : '' %> >Reviews</option>
+              <option value="Business" <%= blogData.category === 'Business' ? 'selected' : '' %> >Business</option>
+              <option value="Education" <%= blogData.category === 'Education' ? 'selected' : '' %>>Education</option>
+              <option value="Parenting" <%= blogData.category === 'Parenting' ? 'selected' : '' %>>Parenting</option>
+              <option value="Lifestyle" <%= blogData.category === 'Lifestyle' ? 'selected' : '' %>>Lifestyle</option>
+              <option value="Technology" <%= blogData.category === 'Technology' ? 'selected' : '' %>>Technology</option>
+              <option value="Entertainment" <%= blogData.category === 'Entertainment' ? 'selected' : '' %>>Entertainment</option>
+              <option value="Relationships" <%= blogData.category === 'Relationships' ? 'selected' : '' %>>Relationships</option>
+              <option value="Home and Garden" <%= blogData.category === 'Home and Garden' ? 'selected' : '' %>>Home and Garden</option>
+              <option value="Arts and Crafts" <%= blogData.category === 'Arts and Crafts' ? 'selected' : '' %>>Arts and Crafts</option>
+              <option value="Culture and Society" <%= blogData.category === 'Culture and Society' ? 'selected' : '' %>>Culture and Society</option>
+              <option value="Personal Development" <%= blogData.category === 'Personal Development' ? 'selected' : '' %>>Personal Development</option>
+            </select>
+
+            <textarea name="content" id="default">
+              <%=blogData.content%>
+            </textarea
+            >
+            <div class="flex flex-end">
+              <button type="submit">Publish</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.tiny.cloud/1/peosbvv61hj2wftcowl4u9l2j5bvg1812vfdu9dfni8fbw1l/tinymce/7/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    <script type="module" src="/scripts/tinymce_config.js"></script>
+    <script src="/scripts/dashboard.js"></script>
+    <script type="module" src="/scripts/addblog.js"></script>
+  </body>
+</html>

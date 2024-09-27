@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="nav-container">
+      <div class="nav-bar flex flex-space-between">
+        <div class="logo flex flex-space-between">
+          <img src="/images/trslogo.png" alt="" srcset="" />
+
+          <div class="menu-icon">
+            <i class="ri-menu-2-line"></i>
+          </div>
+        </div>
+
+        <div class="links-wrapper flex flex-row">
+          <div class="nav-links flex flex-row">
+            <a data-link="/" class="link" href="/">
+              <p>Home</p>
+            </a>
+
+            <a data-link="/blogs" class="link" href="/blogs">
+              <p>Blogs</p>
+            </a>
+
+            <!-- <a href="#" class="link">
+              <p>Contact Us</p>
+            </a> -->
+          </div>
+
+          <% if (user) { %>
+          <div class="profile-wrapper">
+            <div class="profile-container flex">
+              <div class="profile-img flex flex-center">
+                <i class="ri-user-fill"></i>
+              </div>
+              <p><%= user.name %></p>
+              <span style="font-size: 1.7rem">
+                <i class="ri-arrow-down-s-line"></i>
+              </span>
+            </div>
+
+            <div class="dropdown-menu">
+              <a href="/dashboard" class="menu-item dashboard-btn">
+                <p>Dashboard</p>
+              </a>
+
+              <a href="/user/logout" class="menu-item logout-btn">
+                <p>Logout</p>
+              </a>
+            </div>
+          </div>
+          <% } else { %>
+          <div class="nav-buttons flex flex-row">
+            <a href="/user/login" class="nav-btn login-btn">
+              <p>Login</p>
+            </a>
+
+            <a href="/user/register" class="nav-btn sing-btn">
+              <p>Sign Up</p>
+            </a>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>

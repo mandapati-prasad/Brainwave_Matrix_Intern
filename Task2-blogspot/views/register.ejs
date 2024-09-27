@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+    <title>BlogSpot</title>
+  </head>
+  <body>
+    <div class="page-wrapper section flex flex-center home">
+      <div class="login_container section-padding">
+        <%- include('message', error) %>
+        <h1>Register</h1>
+        <form action="/user/register" method="post" class="flex flex-col">
+          <div class="input_container flex">
+            <span class="input_icon flex flex-center">
+              <i class="ri-shield-user-fill"></i>
+            </span>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Name"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="input_container flex">
+            <span class="input_icon flex flex-center">
+              <i class="ri-mail-fill"></i>
+            </span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="input_container flex">
+            <span class="input_icon eye_icon flex flex-center">
+              <i class="ri-eye-fill"></i>
+            </span>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              autocomplete="new-password"
+            />
+          </div>
+
+          <div class="input_container flex">
+            <span class="input_icon c_eye_icon flex flex-center">
+              <i class="ri-eye-fill"></i>
+            </span>
+            <input
+              type="password"
+              name="cpassword"
+              id="cpassword"
+              placeholder="Confirm Password"
+              autocomplete="current-password"
+            />
+          </div>
+
+          <button type="submit" class="login_btn">Register</button>
+
+          <div class="return_btns flex flex-space-between">
+            <a href="/">--Home--</a>
+            <a href="/user/login">--Login--</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="/scripts/register.js"></script>
+  </body>
+</html>

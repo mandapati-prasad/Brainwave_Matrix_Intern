@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/dashboard.css" />
+  </head>
+  <body>
+    <div class="sidebar-wrapper">
+      <div class="close_btn">
+        <i class="ri-close-line"></i>
+      </div>
+      <aside class="side_nav flex flex-col">
+        <div class="top flex flex-col flex-center">
+          <div class="user_img flex flex-center">
+            <i class="ri-user-fill"></i>
+          </div>
+          <p class="user_name"><%= user.name %></p>
+        </div>
+
+        <div class="nav_container flex flex-col">
+          <a href="/dashboard" class="flex menu-item">
+            <div class="icon">
+              <i class="ri-dashboard-fill"></i>
+            </div>
+            <p>Dashboard</p>
+          </a>
+          <a href="/addblog" class="flex menu-item">
+            <div class="icon">
+              <i class="ri-add-circle-fill"></i>
+            </div>
+            <p>Add Blog</p>
+          </a>
+
+          <div
+            class="flex menu-item"
+            style="text-decoration: none"
+            onclick="window.location.href = '/'"
+          >
+            <div class="icon">
+              <i class="ri-home-2-fill"></i>
+            </div>
+            <p>Home</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>

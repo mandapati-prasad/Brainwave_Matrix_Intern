@@ -1,0 +1,220 @@
+/* small mobile */
+@media (min-width: 250px) {
+  .blog_content h1,
+  h2,
+  h3 {
+    font-size: 22px;
+    margin: 1rem 0rem;
+    font-weight: 600;
+    color: var(--bg-color);
+  }
+
+  .blog_content p,
+  li {
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .blog_content p {
+    margin: 10px 0px;
+  }
+
+  .blog_content h4 {
+    margin-top: 1rem;
+    word-spacing: 2px;
+    font-size: 16px;
+  }
+
+  .blog_content strong {
+    font-weight: 600;
+  }
+
+  .blog_content ul {
+    margin: 10px 2rem;
+  }
+
+  .blog_content li {
+    margin: 5px 0px;
+  }
+
+  .blog_content hr {
+    margin: 2rem 0rem;
+  }
+
+  .comment_form {
+    width: 100%;
+  }
+
+  .comment_form textarea {
+    padding: 0.5rem;
+    font-size: 15px;
+    font-weight: 500;
+    outline: none;
+    border: 2px solid rgb(175, 175, 175);
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .comment_form button {
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    background-color: var(--bg-color);
+    margin-top: 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+  }
+
+  .comments_section {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .comments_container {
+    max-width: 800px;
+    gap: 1.5rem;
+    height: 300px;
+    overflow: auto;
+    padding: 1rem;
+  }
+
+  .comment_container {
+    width: fit-content;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0px 3px 15px gainsboro;
+  }
+
+  .comment_container .user_name {
+    gap: 0.5rem;
+    font-weight: 500;
+    align-items: center;
+    color: var(--bg-color);
+  }
+
+  .comment_container .user_name .user_icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: gainsboro;
+  }
+
+  .comment_message {
+    margin-left: 1rem;
+    color: gray;
+  }
+}
+
+/* big mobile */
+@media (min-width: 450px) {
+}
+
+/* tab */
+@media (min-width: 760px) {
+}
+
+/* laptop */
+@media (min-width: 1024px) {
+  .blog_section-1.banner {
+    overflow: visible;
+  }
+
+  .blog_section-1 .banner-content {
+    position: absolute;
+    bottom: -2rem;
+    max-width: calc(100% - 12rem);
+    width: 100%;
+  }
+
+  .banner-content h1 {
+    line-height: 1.5;
+  }
+
+  .blog_content h3 {
+    font-size: 28px;
+    margin: 1rem 0rem;
+    font-weight: 600;
+    word-spacing: 2px;
+  }
+
+  .blog_content p,
+  li {
+    line-height: 1.8;
+    font-size: 18px;
+  }
+
+  .blog_content p {
+    margin: 10px 0px;
+    word-spacing: 2px;
+  }
+
+  .blog_content h4 {
+    margin-top: 1rem;
+    word-spacing: 2px;
+    font-size: 20px;
+  }
+
+  .blog_content strong {
+    font-weight: 600;
+  }
+
+  .blog_content ul {
+    margin: 10px 3rem;
+  }
+
+  .blog_content li {
+    margin: 5px 0px;
+  }
+
+  .blog_content hr {
+    margin: 2rem 0rem;
+  }
+}
+
+/* desktop */
+@media (min-width: 1200px) {
+  .blog_section-1 .banner-content {
+    max-width: calc(80% - 12rem);
+  }
+
+  .blog_section-3.flex {
+    flex-direction: row;
+  }
+
+  .blog_content {
+    max-width: 950px;
+    width: 100%;
+    height: 100vh;
+    padding: 0rem 1rem;
+    overflow: auto;
+    /* border: 1px solid green; */
+  }
+
+  .blog_content::-webkit-scrollbar {
+    width: 8px;
+    background-color: gainsboro;
+    border-radius: 50px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(169, 169, 169);
+    border-radius: 50px;
+  }
+
+  .blog_content p,
+  li {
+    line-height: 2;
+  }
+
+  .comment_form {
+    max-width: 400px;
+  }
+}

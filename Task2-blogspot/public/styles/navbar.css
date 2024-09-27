@@ -1,0 +1,258 @@
+/* mobile */
+@media (min-width: 250px) {
+  nav.nav-container {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+
+  .nav-bar {
+    padding: 0.5rem 1rem;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgb(216, 215, 215);
+    z-index: 10;
+  }
+
+  .logo {
+    width: 100%;
+  }
+
+  .logo img {
+    width: 100px;
+  }
+
+  .logo .menu-icon {
+    display: block;
+    visibility: visible;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .links-wrapper {
+    width: 200px;
+    position: absolute;
+    top: 10rem;
+    right: 1rem;
+    gap: 0;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 2px 5px 15px gainsboro;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: white;
+    transition: all 0.5s;
+  }
+
+  .links-wrapper.show {
+    opacity: 1;
+    visibility: visible;
+    top: 5rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    gap: 0;
+  }
+
+  .nav-buttons {
+    width: 100%;
+  }
+
+  .nav-links .link,
+  .nav-buttons a,
+  .menu-item {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.7rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .link:hover,
+  .nav-buttons a:hover,
+  .menu-item:hover {
+    background-color: var(--bg-color);
+    color: black;
+    scale: 1;
+    transform: translateY(0);
+  }
+
+  .nav-buttons .login-btn {
+    border: none;
+    color: var(--orange);
+  }
+
+  .profile-container {
+    border: 1px solid black;
+    gap: 1rem;
+    margin: 0rem 0.8rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    border-radius: 50px;
+    padding: 0.2rem 0.2rem;
+    font-weight: 500;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    height: 0px;
+    transition: all 0.5s;
+    background-color: white;
+  }
+
+  .dropdown-menu .menu-item{
+    display: block;
+  }
+
+  .profile-wrapper.show .dropdown-menu {
+    height: 98px;
+  }
+
+  .profile-wrapper.show .profile-container {
+    margin-bottom: 0rem;
+  }
+
+  .profile-container span {
+    font-weight: 600;
+    transition: all 0.5s;
+  }
+
+  .profile-img {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(170, 170, 170);
+    font-size: 1.3rem;
+    color: white;
+    border-radius: 50%;
+  }
+
+  .profile-wrapper.show .profile-container span {
+    transform: rotate(-180deg);
+  }
+}
+
+/* tab */
+@media (min-width: 760px) {
+  .nav-bar {
+    padding: 1rem 2rem;
+  }
+
+  .logo {
+    width: fit-content;
+  }
+
+  .logo img {
+    width: 150px;
+  }
+
+  .logo .menu-icon {
+    display: none;
+    visibility: hidden;
+  }
+
+  .links-wrapper {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    gap: 2rem;
+    opacity: 1;
+    overflow: visible;
+    visibility: visible;
+    border-radius: 0;
+    box-shadow: none;
+    justify-content: flex-end;
+    align-items: center;
+    /* border: 1px solid red; */
+  }
+
+  .links-wrapper.show {
+    top: 0;
+  }
+
+  .nav-links {
+    gap: 0rem;
+    /* border: 1px solid green; */
+  }
+
+  .nav-buttons,
+  .nav-links {
+    width: fit-content;
+  }
+
+  .nav-links a,
+  .nav-buttons a {
+    padding: 0.5rem 1rem;
+    /* flex-shrink: 0; */
+  }
+
+  .link:hover {
+    color: var(--orange);
+    transform: translateY(-3px);
+    scale: 1.1;
+    background-color: transparent;
+  }
+
+  .nav-buttons a:hover {
+    background-color: white;
+  }
+
+  .nav-buttons .login-btn {
+    border-right: 2px solid black;
+  }
+
+  .nav-buttons .login-btn:hover {
+    color: var(--orange);
+  }
+
+  .profile-wrapper {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .profile-container {
+    min-width: 10rem;
+    gap: 1rem;
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    bottom: -7rem;
+    left: 0;
+    box-shadow: 0px 0px 15px rgb(173, 172, 172);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+/* laptop */
+@media (min-width: 1024px) {
+  .nav-bar {
+    padding: 1rem 3rem;
+  }
+
+  .links-wrapper {
+    gap: 2rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}

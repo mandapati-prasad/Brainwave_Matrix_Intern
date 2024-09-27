@@ -1,0 +1,235 @@
+/* small mobile */
+@media (min-width: 250px) {
+  .blog_section-1.banner {
+    background-image: url("https://images.unsplash.com/photo-1465311440653-ba9b1d9b0f5b?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    justify-content: center;
+    align-items: center;
+  }
+
+  .blog_section-1.banner::after {
+    background-color: rgba(27, 27, 27, 0.395);
+  }
+
+  .blog_section-1 .banner-content h1 {
+    text-wrap: wrap;
+    text-align: center;
+  }
+
+  .scroll-icon {
+    gap: 1rem;
+    flex-direction: column-reverse;
+  }
+
+  .scroll-icon .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .scroll-icon .icon img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .blog_section-1 .scroll-icon p {
+    font-style: normal;
+    border: 2px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+  }
+
+  /* section - 3 */
+  .blog_section-3 {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .filter_container {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .search_form {
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    border-radius: 50px;
+    overflow: hidden;
+  }
+
+  .search_form input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .search_form button {
+    padding: 0.3rem 1rem;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 18px;
+    color: gray;
+  }
+
+  .category_container {
+    width: 100%;
+    gap: 1rem;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .category_container button {
+    flex-shrink: 0;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+  }
+
+  .category_container .section-heading {
+    display: none;
+  }
+
+  .categories {
+    gap: .5rem;
+    overflow: auto;
+    transition: all 0.5s;
+  }
+
+  .categories::-webkit-scrollbar {
+    display: none;
+  }
+
+  .categories .btn {
+    padding: 5px 15px;
+    width: fit-content;
+    text-wrap: nowrap;
+    border-radius: 50px;
+    font-weight: 500;
+    border: 2px solid black;
+    color: black;
+  }
+
+  .btn.active {
+    background-color: var(--bg-color);
+    border-color: var(--bg-color);
+    color: white;
+  }
+
+  .blogs_container {
+    gap: 2rem;
+  }
+
+  .blogs_container .blogs {
+    display: grid;
+    gap: 2rem;
+  }
+}
+
+/* big mobile */
+@media (min-width: 450px) {
+}
+
+/* tab */
+@media (min-width: 760px) {
+  .filter_container {
+    flex-direction: row;
+  }
+
+  .search_form {
+    max-width: 250px;
+  }
+
+  .categories .category {
+    /* background-color: var(--bg-color); */
+    padding: 5px 20px;
+  }
+}
+
+/* laptop */
+@media (min-width: 1024px) {
+  .blog_section-1.banner {
+    justify-content: flex-start;
+  }
+
+  .blog_section-1 .banner-content {
+    max-width: 35rem;
+    padding: 3rem 2rem;
+    background-color: var(--bg-color);
+  }
+
+  .blog_section-1 .banner-content * {
+    text-wrap: wrap;
+    text-align: center;
+    color: black;
+  }
+
+  .blog_section-1 .banner-content h1 {
+    font-size: 40px;
+  }
+
+  .scroll-icon .icon img {
+    filter: brightness(0);
+  }
+
+  .blog_section-1 .scroll-icon p {
+    border-color: black;
+  }
+
+  /* section - 3 */
+  .blog_section-3.section-padding {
+    padding: 4rem 5rem;
+    gap: 3rem;
+  }
+
+  .blogs_container .blogs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blogs_container .blogs::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .search_form {
+    max-width: 350px;
+  }
+
+  .category_container button {
+    display: block;
+  }
+}
+
+/* desktop */
+@media (min-width: 1200px) {
+  .blog_section-1 .banner-content {
+    max-width: 45rem;
+  }
+
+  /* secgtion - 3 */
+  .filter_container {
+    justify-content: space-between;
+    gap: 5rem;
+  }
+
+  .search_form {
+    max-width: 420px;
+  }
+
+  .category_container {
+    gap: 1rem;
+  }
+
+  .blogs_container .blogs {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+}

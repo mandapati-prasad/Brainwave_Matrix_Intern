@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .message_container {
+        position: absolute;
+        top: 10px;
+        right: -100%;
+        background-color: black;
+        color: red;
+        padding: 1rem 2rem;
+        transition: all 0.5s;
+        z-index: 20;
+      }
+      .message_container.active {
+        right: 10px;
+        animation: slide 0.5s linear;
+      }
+
+      @keyframes slide {
+        0% {
+          right: -100%;
+        }
+        100% {
+          right: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <% if (error) { %>
+    <div class="message_container active" id="message">
+      <p><%= error %></p>
+    </div>
+    <% } %>
+
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>

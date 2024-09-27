@@ -1,0 +1,27 @@
+tinymce.init({
+  selector: "textarea#default",
+  plugins: [
+    "advlist",
+    "autolink",
+    "link",
+    "image",
+    "lists",
+    "charmap",
+    "preview",
+    "anchor",
+    "pagebreak",
+    "searchreplace",
+    "wordcount",
+    "visualblocks",
+    "visualchars",
+    "code",
+    "fullscreen",
+    "insertdatetime",
+    "media",
+    "table",
+    "emoticons",
+    "help",
+  ],
+  toolbar:
+    "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+});

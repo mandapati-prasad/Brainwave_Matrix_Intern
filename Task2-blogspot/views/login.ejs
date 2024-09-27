@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+    <title>BlogSpot</title>
+  </head>
+  <body>
+    <div class="page-wrapper section flex flex-center home">
+      <div class="login_container section-padding">
+        <%- include('message', error) %>
+
+        <h1>Login</h1>
+        <form
+          action="/user/login"
+          method="post"
+          class="flex flex-col"
+          id="login-form"
+        >
+          <div class="input_container flex">
+            <span class="input_icon flex flex-center">
+              <i class="ri-mail-fill"></i>
+            </span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="input_container flex">
+            <span class="input_icon eye_icon flex flex-center">
+              <i class="ri-eye-fill"></i>
+            </span>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              autocomplete="current-password"
+            />
+          </div>
+          <button type="submit" class="login_btn">Login</button>
+          <p>-------or--------</p>
+          <button class="google_btn">
+            <span class="icon">
+              <i class="ri-google-line"></i>
+            </span>
+            <span>Login with Gmail</span>
+          </button>
+
+          <div class="return_btns flex flex-space-between">
+            <a href="/">--Home--</a>
+            <a href="/user/register">--Register--</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="/scripts/firebase.js"></script>
+    <script type="module" src="/scripts/register.js"></script>
+  </body>
+</html>
