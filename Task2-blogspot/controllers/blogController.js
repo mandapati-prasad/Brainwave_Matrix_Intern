@@ -28,8 +28,6 @@ const addBlog = async (req, res) => {
     blobStream.on("finish", async () => {
       const publicUrl = `https://storage.cloud.google.com/${bucket.name}/${blob.name}`;
 
-      console.log(publicUrl);
-
       const blogData = {
         title,
         category,

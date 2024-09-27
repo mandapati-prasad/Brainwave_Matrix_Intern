@@ -1,6 +1,8 @@
+const bodyParser = require("body-parser");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const dotenv = require("dotenv").config();
 
 // importing routes
 const pageRouter = require("./routes/pageRoutes");
@@ -12,6 +14,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
