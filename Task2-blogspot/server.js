@@ -22,6 +22,8 @@ app.use("/", commentRouter);
 app.use("/user", userRouter);
 app.use("/user", blogRouter);
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
   console.log("server is running");
 });
