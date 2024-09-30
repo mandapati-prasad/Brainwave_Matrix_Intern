@@ -37,8 +37,8 @@
           </div>
 
           <div class="filter_container flex">
-            <form action="" class="search_form flex">
-              <input type="text" name="" placeholder="search..." id="" />
+            <form action="" method="GET" class="search_form flex">
+              <input type="text" name="search" placeholder="Search..." />
               <button type="submit"><i class="ri-search-line"></i></button>
             </form>
 
@@ -47,28 +47,113 @@
                 <i class="ri-arrow-left-s-fill"></i>
               </button>
               <div class="categories flex">
-                <div class="category active"><a href="#">All</a></div>
-                <div class="category"><a href="#">Travel</a></div>
-                <div class="category"><a href="#">Sports</a></div>
-                <div class="category"><a href="#">Career</a></div>
-                <div class="category"><a href="#">Finance</a></div>
-                <div class="category"><a href="#">Science</a></div>
-                <div class="category"><a href="#">Reviews</a></div>
-                <div class="category"><a href="#">Business</a></div>
-                <div class="category"><a href="#">Education</a></div>
-                <div class="category"><a href="#">Parenting</a></div>
-                <div class="category"><a href="#">Lifestyle</a></div>
-                <div class="category"><a href="#">Technology</a></div>
-                <div class="category"><a href="#">Entertainment</a></div>
-                <div class="category"><a href="#">Relationships</a></div>
-                <div class="category"><a href="#">Home and Garden</a></div>
-                <div class="category"><a href="#">Arts and Crafts</a></div>
-                <div class="category">
-                  <a href="#">Culture and Society</a>
-                </div>
-                <div class="category">
-                  <a href="#">Personal Development</a>
-                </div>
+                <a
+                  href="?category=All"
+                  class="btn <%= category === 'All' ? 'active' : '' %>"
+                  >All
+                </a>
+
+                <a
+                  class="btn <%= category === 'Travel' ? 'active' : '' %>"
+                  href="?category=Travel"
+                  >Travel
+                </a>
+
+                <a
+                  class="btn <%= category === 'Sports' ? 'active' : '' %>"
+                  href="?category=Sports"
+                  >Sports
+                </a>
+
+                <a
+                  class="btn <%= category === 'Career' ? 'active' : '' %>"
+                  href="?category=Career"
+                  >Career
+                </a>
+
+                <a
+                  class="btn <%= category === 'Finance' ? 'active' : '' %>"
+                  href="?category=Finance"
+                  >Finance
+                </a>
+
+                <a
+                  class="btn <%= category === 'Science' ? 'active' : '' %>"
+                  href="?category=Science"
+                  >Science
+                </a>
+
+                <a
+                  class="btn <%= category === 'Reviews' ? 'active' : '' %>"
+                  href="?category=Reviews"
+                  >Reviews
+                </a>
+
+                <a
+                  class="btn <%= category === 'Business' ? 'active' : '' %>"
+                  href="?category=Business"
+                  >Business
+                </a>
+
+                <a
+                  class="btn <%= category === 'Education' ? 'active' : '' %>"
+                  href="?category=Education"
+                  >Education
+                </a>
+
+                <a
+                  class="btn <%= category === 'Parenting' ? 'active' : '' %>"
+                  href="?category=Parenting"
+                  >Parenting
+                </a>
+
+                <a
+                  class="btn <%= category === 'Lifestyle' ? 'active' : '' %>"
+                  href="?category=Lifestyle"
+                  >Lifestyle
+                </a>
+
+                <a
+                  class="btn <%= category === 'Technology' ? 'active' : '' %>"
+                  href="?category=Technology"
+                  >Technology
+                </a>
+
+                <a
+                  class="btn <%= category === 'Entertainment' ? 'active' : '' %>"
+                  href="?category=Entertainment"
+                  >Entertainment
+                </a>
+
+                <a
+                  class="btn <%= category === 'Relationships' ? 'active' : '' %>"
+                  href="?category=Relationships"
+                  >Relationships
+                </a>
+
+                <a
+                  class="btn <%= category === 'Home' ? 'active' : '' %>"
+                  href="?category=Home"
+                  >Home
+                </a>
+
+                <a
+                  class="btn <%= category === 'Arts' ? 'active' : '' %>"
+                  href="?category=Arts"
+                  >Arts
+                </a>
+
+                <a
+                  class="btn <%= category === 'Culture' ? 'active' : '' %>"
+                  href="?category=Culture"
+                  >Culture
+                </a>
+
+                <a
+                  class="btn <%= category === 'Personaldevelopment' ? 'active' : '' %>"
+                  href="?category=Personaldevelopment"
+                  >Personaldevelopment
+                </a>
               </div>
               <button id="next">
                 <i class="ri-arrow-right-s-fill"></i>
@@ -117,6 +202,37 @@
               </table>
               <% } %>
             </div>
+          </div>
+
+          <div class="pagination flex flex-center">
+            <!-- Previous Button -->
+            <% if (currentPage > 1) { %>
+            <a
+              href="?page=<%= currentPage - 1 %>&search=<%= search %>&category=<%= category %>"
+            >
+              <button class="prev">Previous</button>
+            </a>
+            <% } %>
+
+            <!-- Page Numbers -->
+            <% for (let i = 1; i <= totalPages; i++) { %>
+            <a
+              href="?page=<%= i %>&search=<%= search %>&category=<%= category %>"
+            >
+              <button class="page <%= currentPage === i ? 'active' : '' %>">
+                <%= i %>
+              </button>
+            </a>
+            <% } %>
+
+            <!-- Next Button -->
+            <% if (currentPage < totalPages) { %>
+            <a
+              href="?page=<%= currentPage + 1 %>&search=<%= search %>&category=<%= category %>"
+            >
+              <button class="next">Next</button>
+            </a>
+            <% } %>
           </div>
         </section>
       </div>

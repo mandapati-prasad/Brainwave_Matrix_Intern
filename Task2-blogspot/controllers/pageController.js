@@ -100,29 +100,68 @@ const renderDashboardPage = async (req, res) => {
     ? { name: req.user.name || req.user.email, id: req.user.uid }
     : null;
 
+  const search = req.query.search || "";
+  const category = req.query.category || "All";
+  const page = parseInt(req.query.page) || 1;
+  const limit = 6;
+
   try {
     const blogref = db.collection("blogs");
-    const snapshot = await blogref
-      .where("userId", "==", userProfile.id)
-      .orderBy("createdAt", "desc")
-      .get();
+    let query = blogref.where("userId", "==", userProfile.id);
+
+    if (category !== "All") {
+      query = query.where("category", "==", category);
+    }
+
+    const snapshot = await query.orderBy("createdAt", "desc").get();
 
     if (snapshot.empty) {
       return res.render("dashboard/dashboard", {
         user: userProfile,
         blogs: [],
-      }); // Add return to stop further execution
+        search,
+        category,
+        currentPage: page,
+        totalPages: 1,
+      });
     }
 
-    const blogs = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
+    const filteredBlogs = snapshot.docs
+      .map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      .filter(
+        (blog) =>
+          blog.title.toLowerCase().includes(search.toLowerCase()) ||
+          blog.content.toLowerCase().includes(search.toLowerCase())
+      );
 
-    res.render("dashboard/dashboard", { user: userProfile, blogs });
+    const totalBlogs = filteredBlogs.length;
+    const totalPages = Math.ceil(totalBlogs / limit);
+    const paginatedBlogs = filteredBlogs.slice(
+      (page - 1) * limit,
+      page * limit
+    );
+
+    res.render("dashboard/dashboard", {
+      user: userProfile,
+      blogs: paginatedBlogs,
+      search,
+      category,
+      currentPage: page,
+      totalPages,
+    });
   } catch (error) {
     console.log(error.message);
-    res.render("dashboard/dashboard", { user: userProfile, blogs: [] });
+    res.render("dashboard/dashboard", {
+      user: userProfile,
+      blogs: [],
+      search,
+      category,
+      currentPage: page,
+      totalPages: 1,
+    });
   }
 };
 

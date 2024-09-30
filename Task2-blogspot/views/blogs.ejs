@@ -143,19 +143,19 @@
 
               <a
                 class="btn <%= category === 'Arts' ? 'active' : '' %>"
-                href="?category=Arts&search=<%= search %>"
+                href="?category=Arts"
                 >Arts
               </a>
 
               <a
                 class="btn <%= category === 'Culture' ? 'active' : '' %>"
-                href="?category=Culture&search=<%= search %>"
+                href="?category=Culture"
                 >Culture
               </a>
 
               <a
                 class="btn <%= category === 'Personaldevelopment' ? 'active' : '' %>"
-                href="?category=Personaldevelopment&search=<%= search %>"
+                href="?category=Personaldevelopment"
                 >Personaldevelopment
               </a>
             </div>
@@ -195,7 +195,7 @@
             <a
               href="?page=<%= currentPage - 1 %>&search=<%= search %>&category=<%= category %>"
             >
-              <button>Previous</button>
+              <button class="prev">Previous</button>
             </a>
             <% } %>
 
@@ -204,7 +204,7 @@
             <a
               href="?page=<%= i %>&search=<%= search %>&category=<%= category %>"
             >
-              <button class="<%= currentPage === i ? 'active' : '' %>">
+              <button class="page <%= currentPage === i ? 'active' : '' %>">
                 <%= i %>
               </button>
             </a>
@@ -215,7 +215,7 @@
             <a
               href="?page=<%= currentPage + 1 %>&search=<%= search %>&category=<%= category %>"
             >
-              <button>Next</button>
+              <button class="next">Next</button>
             </a>
             <% } %>
           </div>
